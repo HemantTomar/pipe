@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "assume-role-policy" {
 resource "aws_iam_role" "pipeline_role" {
   name               = "pipeline_role"
   path               = "/system/"
-  assume_role_policy = data.aws_iam_policy_document.instance-assume-role-policy.json
+  assume_role_policy = data.aws_iam_policy_document.assume-role-policy.json
 }
 resource "aws_codepipeline" "static_web_pipeline" {
   name     = "static-web-pipeline"
