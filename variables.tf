@@ -22,7 +22,7 @@ variable "repository_owner" {
 
 variable "repository_name" {
   description = "GitHub repository name"
-  default     = "https://github.com/HemantTomar/pipe.git"
+  default     = "pipe.git"
 }
 
 variable "static_web_bucket_name" {
