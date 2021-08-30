@@ -2,7 +2,7 @@
 
 variable "region" {
   description = "AWS region"
-  default     = "eu-west-1"
+  default     = "us-east-1"
 }
 
 variable "env" {
@@ -12,17 +12,17 @@ variable "env" {
 
 variable "repository_branch" {
   description = "Repository branch to connect to"
-  default     = "develop"
+  default     = "master"
 }
 
 variable "repository_owner" {
   description = "GitHub repository owner"
-  default     = "stojce"
+  default     = "HemantTomar"
 }
 
 variable "repository_name" {
   description = "GitHub repository name"
-  default     = "static-web-example"
+  default     = "pipe"
 }
 
 variable "static_web_bucket_name" {
