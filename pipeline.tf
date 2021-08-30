@@ -1,6 +1,22 @@
+data "aws_iam_policy_document" "instance-assume-role-policy" {
+  statement {
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+  }
+}
+
+resource "aws_iam_role" "pipeline_role" {
+  name               = "pipeline_role"
+  path               = "/system/"
+  assume_role_policy = data.aws_iam_policy_document.instance-assume-role-policy.json
+}
 resource "aws_codepipeline" "static_web_pipeline" {
   name     = "static-web-pipeline"
-  role_arn = data.aws_iam_role.pipeline_role.arn
+  role_arn = aws_iam_role.pipeline_role.arn
   tags     = {
     Environment = var.env
   }
