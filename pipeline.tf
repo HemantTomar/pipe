@@ -1,10 +1,10 @@
-data "aws_iam_policy_document" "instance-assume-role-policy" {
+data "aws_iam_policy_document" "assume-role-policy" {
   statement {
     actions = ["sts:AssumeRole"]
 
     principals {
       type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
+      identifiers = ["codepipeline.amazonaws.com"]
     }
   }
 }

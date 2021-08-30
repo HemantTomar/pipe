@@ -4,7 +4,7 @@ data "aws_iam_policy_document" "instance-assume--policy" {
 
     principals {
       type        = "Service"
-      identifiers = ["ec2.amazonaws.com"]
+      identifiers = ["codepipeline.amazonaws.com"]
     }
   }
 }
@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "instance-assume--policy" {
 resource "aws_iam_role" "static_build_role" {
   name               = "static_build_role"
   path               = "/system/"
-  assume_role_policy = data.aws_iam_policy_document.instance-assume-role-policy.json
+  assume_role_policy = data.aws_iam_policy_document.assume-role-policy.json
 }
 data "template_file" "buildspec" {
   template = "${file("buildspec.yml")}"
